@@ -31,6 +31,11 @@
 ```bash
 $ npm install
 ```
+## Configuration
+
+```bash
+Rename the ".env.example" file to ".env" and configure it with your variables
+```
 
 ## Running the app
 
