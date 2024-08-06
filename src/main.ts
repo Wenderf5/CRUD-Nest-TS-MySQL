@@ -8,6 +8,9 @@ async function bootstrap() {
     whitelist: true,
     forbidNonWhitelisted: true
   }));
-  await app.listen(8080);
+  const PORT = 8080;
+  await app.listen(PORT, () => {
+    console.log(`Servidor ativo na porta ${PORT}`);
+  });
 }
-bootstrap();
+
