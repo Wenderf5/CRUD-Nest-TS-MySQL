@@ -13,4 +13,4 @@ async function bootstrap() {
     console.log(`Servidor ativo na porta ${PORT}`);
   });
 }
-
+bootstrap();
