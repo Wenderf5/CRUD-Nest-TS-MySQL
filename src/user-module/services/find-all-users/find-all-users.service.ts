@@ -1,17 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Users } from 'src/user-module/dataBase/entitys/users.entity';
+import { users } from 'src/user-module/dataBase/entitys/users.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class FindAllUsersService {
-    constructor(@InjectRepository(Users) private readonly usersRepository: Repository<Users>) { }
+    constructor(@InjectRepository(users) private readonly usersRepository: Repository<users>) { }
 
-    async FindAllUsers() {
+    async FindAllUsers(): Promise<users[] | HttpStatus> {
         try {
-            return  await this.usersRepository.find();
-        }catch(error){
-            return `Erro ao pegar usuarios: ${error}`
+            const users: users[] = await this.usersRepository.find();
+            return users;
+        } catch (error) {
+            return HttpStatus.BAD_REQUEST;
         }
     }
 }

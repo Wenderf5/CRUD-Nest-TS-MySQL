@@ -8,11 +8,11 @@ import { NewUserService } from './services/new-user/new-user.service';
 import { FindUserService } from './services/find-user/find-user.service';
 import { FindAllUsersService } from './services/find-all-users/find-all-users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Users } from './dataBase/entitys/users.entity';
+import { users } from './dataBase/entitys/users.entity';
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([Users])
+        TypeOrmModule.forFeature([users])
     ],
     controllers: [
         NewUserController,

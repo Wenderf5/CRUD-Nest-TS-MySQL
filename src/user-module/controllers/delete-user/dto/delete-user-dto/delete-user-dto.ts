@@ -1,6 +1,6 @@
 import { IsString } from "class-validator";
 
-export class FindUserDto {
+export class DeleteUserDto {
     @IsString()
-    email: string
+    cpf: string
 }

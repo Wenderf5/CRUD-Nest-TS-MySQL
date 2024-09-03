@@ -1,18 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Users } from 'src/user-module/dataBase/entitys/users.entity';
+import { NewUserDto } from 'src/user-module/controllers/new-user/dto/new-user-dto/new-user-dto';
+import { users } from 'src/user-module/dataBase/entitys/users.entity';
 import { Repository } from 'typeorm';
+import { HttpStatus } from '@nestjs/common';
 
 @Injectable()
 export class NewUserService {
-    constructor(@InjectRepository(Users) private usersRepository: Repository<Users>){}
+    constructor(@InjectRepository(users) private usersRepository: Repository<users>) { }
 
-    async NewUser(newUser){
+    async NewUser(newUser: NewUserDto): Promise<HttpStatus> {
         try {
             await this.usersRepository.save(newUser);
-            return "Usuario cadastrado com sucesso!"
+            return HttpStatus.OK;
         } catch (error) {
-            return `Erro ao cadastrar usuario: ${error}` 
+            return HttpStatus.BAD_REQUEST;
         }
     }
 }

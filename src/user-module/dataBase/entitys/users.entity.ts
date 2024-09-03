@@ -1,11 +1,11 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 
 @Entity()
-export class Users{
+export class users{
     @PrimaryColumn()
-    id: number
+    id: number;
     @Column()
-    email: string
+    cpf: string;
     @Column()
-    password: string
+    name: string;
 }

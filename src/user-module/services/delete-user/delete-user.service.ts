@@ -1,18 +1,19 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Users } from 'src/user-module/dataBase/entitys/users.entity';
+import { DeleteUserDto } from 'src/user-module/controllers/delete-user/dto/delete-user-dto/delete-user-dto';
+import { users } from 'src/user-module/dataBase/entitys/users.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class DeleteUserService {
-    constructor(@InjectRepository(Users) private readonly usersRepository: Repository<Users>) { }
+    constructor(@InjectRepository(users) private readonly usersRepository: Repository<users>) { }
 
-    async DeleteUser(user) {
-        const result =  await this.usersRepository.delete(user)
+    async DeleteUser(cpf: DeleteUserDto): Promise<HttpStatus> {
+        const result =  await this.usersRepository.delete(cpf)
         if(result.affected === 0){
-            return "Usuario não encontrado!"
+            return HttpStatus.BAD_REQUEST;
         }else{
-            return "Usuario deletado com sucesso!"
+            return HttpStatus.OK;
         }
     }
 }
