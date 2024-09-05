@@ -10,7 +10,7 @@ async function bootstrap() {
   }));
   const PORT = 8080;
   await app.listen(PORT, () => {
-    console.log(`Servidor ativo na porta ${PORT}`)
+    console.log(`Servidor ativo na porta ${PORT}`);
   });
 }
 bootstrap();
