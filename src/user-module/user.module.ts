@@ -8,12 +8,17 @@ import { NewUserService } from './services/new-user/new-user.service';
 import { FindUserService } from './services/find-user/find-user.service';
 import { FindAllUsersService } from './services/find-all-users/find-all-users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { users } from './dataBase/entitys/users.entity';
-import { user_course } from './dataBase/entitys/user_course.entity';
+import { users } from '../dataBase/entitys/users.entity';
+import { course } from '../dataBase/entitys/course.entity';
+import { user_course } from '../dataBase/entitys/user_course.entity';
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([users, user_course])
+        TypeOrmModule.forFeature([
+            users,
+            user_course,
+            course
+        ])
     ],
     controllers: [
         NewUserController,

@@ -4,10 +4,10 @@ import { DeleteUserService } from 'src/user-module/services/delete-user/delete-u
 
 @Controller('/delete-user')
 export class DeleteUserController {
-    constructor(private readonly deleteUserService: DeleteUserService){}
+    constructor(private readonly deleteUserService: DeleteUserService) { }
 
     @Post()
-    DeleteUser(@Body() cpf: DeleteUserDto): Promise<HttpStatus>{
+    DeleteUser(@Body() cpf: DeleteUserDto): Promise<HttpStatus> {
         return this.deleteUserService.DeleteUser(cpf);
     }
 }

@@ -1,7 +1,7 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteUserDto } from 'src/user-module/controllers/delete-user/dto/delete-user-dto/delete-user-dto';
-import { users } from 'src/user-module/dataBase/entitys/users.entity';
+import { users } from 'src/dataBase/entitys/users.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()

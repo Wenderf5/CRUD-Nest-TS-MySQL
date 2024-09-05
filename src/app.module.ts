@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { UserModuleModule } from './user-module/user-module.module';
+import { UserModuleModule } from './user-module/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from './config/data-base-config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { CourseModuleModule } from './course-module/course.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       inject: [ConfigService],
     }),
     ConfigModule.forRoot(),
+    CourseModuleModule,
   ],
   controllers: [],
   providers: [],
