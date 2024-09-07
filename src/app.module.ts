@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { UserModuleModule } from './user-module/user.module';
+import { UserModuleModule } from './modules/user-module/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from './config/data-base-config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { CourseModuleModule } from './course-module/course.module';
+import { CourseModuleModule } from './modules/course-module/course.module';
 
 @Module({
   imports: [
