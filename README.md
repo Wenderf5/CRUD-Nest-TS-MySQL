@@ -9,7 +9,7 @@ Este projeto é uma aplicação CRUD desenvolvida com [Nest.js](https://nestjs.c
 
 Além disso, você pode [baixar o dump do banco de dados MySQL](https://drive.google.com/file/d/1MxgZpL6WaYW_IfsH0A9MePMjJx347Tu4/view?usp=sharing) para configurar o ambiente localmente.
 
-## Installation
+## Instalação
 
 ```bash
 $ npm install
@@ -17,10 +17,10 @@ $ npm install
 ## Configuration
 
 ```bash
-Rename the ".env.example" file to ".env" and configure it with your variables
+Renomeie o arquivo `.env.example` para `.env` e configure-o com as suas variáveis de ambiente.
 ```
 
-## Running the app
+## Rodando o app
 
 ```bash
 # development
