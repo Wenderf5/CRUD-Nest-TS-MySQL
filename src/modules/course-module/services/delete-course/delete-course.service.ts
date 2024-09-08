@@ -1,6 +1,5 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { deleteCourseDTO } from '../../controllers/delete-course/dto/delete-course-dto/delete-course-dto';
 import { course } from 'src/dataBase/entitys/course.entity';
 import { Repository } from 'typeorm';
 
@@ -10,7 +9,7 @@ export class DeleteCourseService {
     private readonly course_repository: Repository<course>
     ) { }
 
-    async deleteCourse(course: deleteCourseDTO) {
+    async deleteCourse(course: { id: number }) {
         const result = await this.course_repository.delete(course);
         if (result.affected === 0) {
             return HttpStatus.BAD_REQUEST;

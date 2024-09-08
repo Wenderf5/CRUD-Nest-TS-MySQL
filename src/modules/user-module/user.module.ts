@@ -11,6 +11,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { users } from 'src/dataBase/entitys/users.entity';
 import { course } from 'src/dataBase/entitys/course.entity';
 import { user_course } from 'src/dataBase/entitys/user_course.entity';
+import { NewCourseController } from './controllers/new-course/new-course.controller';
+import { DeleteCourseService } from './services/delete-course/delete-course.service';
+import { NewCourseService } from './services/new-course/new-course.service';
+import { DeleteCourseController } from './controllers/delete-course/delete-course.controller';
 
 @Module({
     imports: [
@@ -24,13 +28,17 @@ import { user_course } from 'src/dataBase/entitys/user_course.entity';
         NewUserController,
         FindUserController,
         FindAllUsersController,
-        DeleteUserController
+        DeleteUserController,
+        NewCourseController,
+        DeleteCourseController
     ],
     providers: [
         DeleteUserService,
         NewUserService,
         FindUserService,
-        FindAllUsersService
+        FindAllUsersService,
+        NewCourseService,
+        DeleteCourseService
     ]
 })
 export class UserModuleModule { }
