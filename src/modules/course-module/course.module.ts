@@ -7,9 +7,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { course } from 'src/dataBase/entitys/course.entity';
 import { FindAllCoursesController } from './controllers/find-all-courses/find-all-courses.controller';
 import { FindAllCoursesService } from './services/find-all-courses/find-all-courses.service';
+import { user_course } from 'src/dataBase/entitys/user_course.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([course])],
+  imports: [TypeOrmModule.forFeature([course, user_course])],
   controllers: [NewCourseController, DeleteCourseController, FindAllCoursesController],
   providers: [NewCourseService, DeleteCourseService, FindAllCoursesService]
 })

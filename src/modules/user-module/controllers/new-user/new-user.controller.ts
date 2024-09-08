@@ -7,7 +7,7 @@ export class NewUserController {
     constructor(private readonly newUserService: NewUserService) { }
 
     @Post()
-    NewUser(@Body() user: NewUserDto): Promise<HttpStatus> {
+    NewUser(@Body() user: NewUserDto): Promise<HttpStatus | { mensage: string }> {
         return this.newUserService.NewUser(user);
     }
 }

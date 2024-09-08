@@ -4,10 +4,10 @@ import { newCourseDTO } from './dto/new-course-dto/new-course-dto';
 
 @Controller('/new-course')
 export class NewCourseController {
-    constructor(private readonly new_course_service: NewCourseService){}
+    constructor(private readonly new_course_service: NewCourseService) { }
 
     @Post()
-    newCourse(@Body() newCourse: newCourseDTO): HttpStatus{
-        return this.new_course_service.newCourse(newCourse);
+    async newCourse(@Body() newCourse: newCourseDTO): Promise<HttpStatus | { mensage: string }> {
+        return await this.new_course_service.newCourse(newCourse);
     }
 }

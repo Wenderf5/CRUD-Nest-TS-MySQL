@@ -11,11 +11,14 @@ export class NewCourseService {
         private readonly course_repository: Repository<course>
     ) { }
 
-    newCourse(newCourse: newCourseDTO): HttpStatus {
+    async newCourse(newCourse: newCourseDTO): Promise<HttpStatus | { mensage: string }> {
         try {
-            this.course_repository.save(newCourse);
+            await this.course_repository.save(newCourse);
             return HttpStatus.CREATED;
         } catch (error) {
+            if (error.code === 'ER_DUP_ENTRY') {
+                return { mensage: "O curso já está cadastrado!" };
+            }
             return HttpStatus.BAD_REQUEST;
         }
     }
