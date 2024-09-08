@@ -14,7 +14,7 @@ Além disso, você pode [baixar o dump do banco de dados MySQL](https://drive.go
 ```bash
 $ npm install
 ```
-## Configuration
+## Configuração
 
 ```bash
 Renomeie o arquivo `.env.example` para `.env` e configure-o com as suas variáveis de ambiente.
